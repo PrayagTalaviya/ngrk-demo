@@ -1,0 +1,33 @@
+
+
+<div style=" display: flex ; flex-wrap: wrap;">
+    <mat-card 
+
+    *ngFor="let item of user" 
+    style="width: 330px; 
+    margin: 20px;
+    border: 1px solid red;
+    border-radius: 20px 0px 20px 0px;
+    box-shadow: 2px 5px 10px rgb(248, 161, 161);
+    ">
+    Name : {{item.name}} 
+    <hr>
+    Name : {{item.email}} 
+ 
+    <hr>
+<div class="btn-group">
+    <button (click)='delete(item.id)' mat-raised-button color='warn'>
+        delete
+    </button>
+    
+    <button (click)='edit(item.id)' mat-raised-button color='primary'>
+        Edit
+    </button>
+
+    <button (click)='view(item.id)' mat-raised-button >
+        View
+    </button>
+</div>
+   
+    </mat-card>
+</div>

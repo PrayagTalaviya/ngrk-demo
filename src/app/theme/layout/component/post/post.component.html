@@ -1,0 +1,44 @@
+<div style="display: flex; flex-wrap: wrap">
+  <mat-card
+    *ngFor="let item of post"
+    style="
+      width: 330px;
+      margin: 20px;
+      border: 1px solid rgb(60, 255, 0);
+      border-radius: 20px 0px 20px 0px;
+      box-shadow: 2px 5px 10px rgba(200, 248, 161, 0.808);
+    "
+  >
+    Id : {{ item.id }}
+    <hr />
+    Title : {{ item.title }}
+    <hr />
+    <div *ngFor="let c of item.comments">
+      description : {{ c.description }}
+      <button mat-button  color="primary">Edit</button>
+      <button mat-button (click)='delete(item.id,c.id)'color="warn">Delete</button>
+    </div>
+    <form [formGroup]="comment">
+      <mat-form-field appearance="fill" style="width: 70%">
+        <mat-label>Input</mat-label>
+        <input matInput  formControlName="c"/>
+      </mat-form-field>
+      <button class="btnadd" mat-raised-button (click)='add(item.id)' color="primary">Add</button>
+    </form>
+   
+  </mat-card>
+</div>
+
+<!-- <div class="btn-group">
+    <button (click)='delete(item.id)' mat-raised-button color='warn'>
+        delete
+    </button>
+    
+    <button (click)='edit(item.id)' mat-raised-button color='primary'>
+        Edit
+    </button>
+
+    <button (click)='view(item.id)' mat-raised-button >
+        View
+    </button>
+</div> -->
